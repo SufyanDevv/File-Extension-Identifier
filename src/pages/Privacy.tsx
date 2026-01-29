@@ -151,7 +151,7 @@ export default function Privacy() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Contact Us</h2>
             <div className="space-y-4 text-gray-700 dark:text-slate-300 leading-relaxed">
               <p>
-                If you have questions about this privacy policy or our privacy practices, please contact us.
+                If you have questions about this privacy policy or our privacy practices, please <a className='font-bold text-blue-600 dark:text-blue-400' href="mailto:sufyanfreetools@proton.me">contact us</a>.
               </p>
             </div>
           </section>

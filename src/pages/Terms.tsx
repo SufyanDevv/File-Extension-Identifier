@@ -187,7 +187,7 @@ export default function Terms() {
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Contact Information</h2>
             <div className="space-y-4 text-gray-700 dark:text-slate-300 leading-relaxed">
               <p>
-                If you have any questions about these Terms of Service, please contact us.
+                If you have any questions about these Terms of Service, please <a className='font-bold text-blue-600 dark:text-blue-400' href="mailto:sufyanfreetools@proton.me">contact us</a>.
               </p>
             </div>
           </section>

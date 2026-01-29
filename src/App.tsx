@@ -11,6 +11,31 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
+    // Check URL parameters for page routing
+    const params = new URLSearchParams(window.location.search);
+    const pageParam = params.get('page');
+    if (pageParam === 'privacy' || pageParam === 'terms') {
+      setCurrentPage(pageParam as Page);
+    } else {
+      setCurrentPage('home');
+    }
+
+    // Handle back/forward browser buttons
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const pageParam = params.get('page');
+      if (pageParam === 'privacy' || pageParam === 'terms') {
+        setCurrentPage(pageParam as Page);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
     // Check for saved theme or system preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -43,6 +68,12 @@ function App() {
   const navigateTo = (page: Page) => {
     setCurrentPage(page);
     scrollToTop();
+
+    // Update URL without reloading
+    const newUrl = page === 'home'
+      ? window.location.pathname
+      : `${window.location.pathname}?page=${page}`;
+    window.history.pushState({ page }, '', newUrl);
   };
 
 
