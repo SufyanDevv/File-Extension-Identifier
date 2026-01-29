@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /private/
-Disallow: /admin/
-Sitemap: https://file-extension-identifier.netlify.app/sitemap.xml
