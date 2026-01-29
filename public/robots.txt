@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Sitemap: https://file-extension-identifier.pages.dev/sitemap.xml
